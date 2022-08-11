@@ -9,6 +9,7 @@ exports.draw = async function (ctx) {
 exports.set = async function (ctx) {
     if (ctx.message.from.id == 589215) {
         var array = ctx.message.text.split(" ");
+        sumPointsInArray(array, array[1], array[2]);
         await ctx.reply(showPoints({ name: array[1], points: array[2] }));
     } else {
         await ctx.reply('https://giphy.com/gifs/ian-mckellen-nlcJ4MkoG3Tri');
