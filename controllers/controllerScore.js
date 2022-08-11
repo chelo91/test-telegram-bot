@@ -36,6 +36,13 @@ exports.restart = async function (ctx) {
 
 exports.table = async function (ctx) {
     const array = ctx.session.table || [];
+    var name = ctx.message.from.first_name;
+    i = findPlayerByName(array, name);
+    
+    if (i == -1) {
+        i = createPlayer(array, name, 0);
+    }
+
     var AsciiTable = require('ascii-table');
     var table = new AsciiTable('The Cat League');
 
